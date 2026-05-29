@@ -14,12 +14,16 @@ const genAI = new GoogleGenerativeAI(
   process.env.GEMINI_API_KEY
 );
 
+app.get("/", (req, res) => {
+  res.send("Backend Gemini attivo");
+});
+
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
 
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash"
+      model: "gemini-1.5-flash"
     });
 
     const result = await model.generateContent(message);
@@ -39,10 +43,6 @@ app.post("/chat", async (req, res) => {
     });
 
   }
-});
-
-app.get("/", (req, res) => {
-  res.send("Backend Gemini attivo");
 });
 
 app.listen(process.env.PORT || 3001, () => {
