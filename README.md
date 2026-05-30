@@ -2,6 +2,10 @@
 
 Simple chatbot based on Google Gemini.
 
+## Test the project
+
+online demo: https://chatbot-ai-sable-eight.vercel.app
+
 ## Technologies
 
 - React
